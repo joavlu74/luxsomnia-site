@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Luxsomnia — Precision Machined Gear for Musicians</title>
+<meta name="description" content="Custom CNC-machined aluminum and hardwood accessories for guitarists, producers, and studios. Handcrafted, built to last." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0e0f12;
+    --bg-2: #15171c;
+    --card: #1a1d23;
+    --ink: #f4f1ea;
+    --muted: #a7a39a;
+    --accent: #c8a24b;      /* brushed gold */
+    --accent-2: #7fb0c4;    /* cool steel */
+    --line: #2a2e36;
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .brand { font-family: 'Space Grotesk', sans-serif; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  a { color: inherit; text-decoration: none; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(14,15,18,0.82);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .brand { font-weight: 700; font-size: 1.35rem; letter-spacing: 0.04em; }
+  .brand span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; font-size: 0.95rem; }
+  .nav-links a { color: var(--muted); transition: color .2s; }
+  .nav-links a:hover { color: var(--ink); }
+  @media (max-width: 640px) { .nav-links { display: none; } }
+
+  /* HERO */
+  .hero {
+    padding: 96px 0 72px;
+    background:
+      radial-gradient(1200px 400px at 70% -10%, rgba(200,162,75,0.10), transparent 60%),
+      radial-gradient(900px 400px at 10% 10%, rgba(127,176,196,0.08), transparent 55%);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .eyebrow {
+    display: inline-block; font-size: 0.78rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+    border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px;
+  }
+  .hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.1; font-weight: 700; max-width: 820px; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p { color: var(--muted); font-size: 1.15rem; max-width: 620px; margin-top: 22px; }
+  .cta-row { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 13px 26px; border-radius: 999px;
+    font-weight: 600; font-size: 0.98rem; transition: transform .15s, background .2s, border-color .2s;
+  }
+  .btn-primary { background: var(--accent); color: #141206; }
+  .btn-primary:hover { transform: translateY(-2px); background: #d8b45e; }
+  .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--accent); }
+
+  /* SECTION TITLES */
+  .section { padding: 84px 0; }
+  .section-head { max-width: 640px; margin-bottom: 48px; }
+  .section-head .kicker { color: var(--accent-2); font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; }
+  .section-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-top: 12px; }
+  .section-head p { color: var(--muted); margin-top: 14px; font-size: 1.05rem; }
+
+  /* PRODUCTS */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; display: flex; flex-direction: column; transition: transform .2s, border-color .2s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .ph {
+    aspect-ratio: 4/3; width: 100%;
+    background:
+      repeating-linear-gradient(45deg, #1f232a, #1f232a 12px, #22262e 12px, #22262e 24px);
+    display: flex; align-items: center; justify-content: center;
+    color: #5a606c; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;
+    border-bottom: 1px solid var(--line);
+  }
+  .card-body { padding: 22px 22px 26px; display: flex; flex-direction: column; flex: 1; }
+  .tag { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .card h3 { font-size: 1.25rem; margin: 8px 0 10px; }
+  .card p { color: var(--muted); font-size: 0.95rem; flex: 1; }
+  .price { margin-top: 18px; font-family: 'Space Grotesk'; font-size: 1.1rem; color: var(--ink); }
+  .price small { color: var(--muted); font-weight: 400; font-size: 0.85rem; }
+
+  /* MATERIALS / WHY */
+  .why { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr; } }
+  .why-item h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--accent); }
+  .why-item p { color: var(--muted); font-size: 0.96rem; }
+
+  /* CONTACT */
+  .contact { text-align: center; }
+  .contact h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+  .contact p { color: var(--muted); max-width: 520px; margin: 16px auto 32px; font-size: 1.08rem; }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--line); padding: 40px 0; color: var(--muted); font-size: 0.9rem; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  .fade { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+  .fade.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">LUX<span>SOMNIA</span></div>
+    <div class="nav-links">
+      <a href="#products">Products</a>
+      <a href="#craft">Craftsmanship</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Handcrafted · Made to order</span>
+    <h1>Precision machined gear for <em>musicians</em> who sweat the details.</h1>
+    <p>Custom CNC-machined aluminum and hand-finished hardwood accessories for guitarists, producers, and studios. Built one at a time — not stamped out by the thousand.</p>
+    <div class="cta-row">
+      <a href="#products" class="btn btn-primary">See the lineup</a>
+      <a href="#contact" class="btn btn-ghost">Request a custom build</a>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="products">
+  <div class="wrap">
+    <div class="section-head fade">
+      <span class="kicker">The Lineup</span>
+      <h2>Small-batch pieces, serious materials.</h2>
+      <p>Our first drop focuses on what we do best: metal you can feel the weight of, finished by hand. More designs are added as we build.</p>
+    </div>
+    <div class="grid">
+      <article class="card fade">
+        <div class="ph">Product photo</div>
+        <div class="card-body">
+          <span class="tag">Aluminum · Guitar &amp; Amp</span>
+          <h3>Custom Machined Knobs</h3>
+          <p>Solid aluminum control knobs for guitars, amps, and pedals. Knurled, anodized, or raw brushed — turned to your spec. Sold in matched sets.</p>
+          <div class="price">from $29 <small>/ set</small></div>
+        </div>
+      </article>
+      <article class="card fade">
+        <div class="ph">Product photo</div>
+        <div class="card-body">
+          <span class="tag">Aluminum · Studio</span>
+          <h3>Microphone Decoupler</h3>
+          <p>Machined-aluminum shock mount and decoupler for condenser mics. Kills vibration without the rubber-band rattle of cheap mounts. Studio-grade.</p>
+          <div class="price">from $65</div>
+        </div>
+      </article>
+      <article class="card fade">
+        <div class="ph">Product photo</div>
+        <div class="card-body">
+          <span class="tag">Aluminum + Walnut</span>
+          <h3>Pedalboard — Signature Series</h3>
+          <p>Aircraft-grade aluminum deck with solid walnut sides. Angled, vented, and built to gig. Made to order in three sizes.</p>
+          <div class="price">from $219</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section why" id="craft">
+  <div class="wrap">
+    <div class="section-head fade">
+      <span class="kicker">Why Luxsomnia</span>
+      <h2>Machine shop quality, at a maker's scale.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item fade">
+        <h3>Real metal, real tolerances</h3>
+        <p>We CNC-machine aluminum, brass, and stainless — not just plastic or MDF. The result has weight, fit, and a finish most small shops can't touch.</p>
+      </div>
+      <div class="why-item fade">
+        <h3>Made one at a time</h3>
+        <p>Every piece is cut, finished, and inspected by hand. No overseas drop-ship, no corner-cutting. Built like it's going on our own rig.</p>
+      </div>
+      <div class="why-item fade">
+        <h3>Custom is the default</h3>
+        <p>Want a different size, color, or engraving? That's the whole point. Tell us what your setup needs and we'll build it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="fade">
+      <h2>Let's build something.</h2>
+      <p>Custom orders, wholesale, and shop inquiries welcome. Tell us what you're after and we'll get back with a quote and lead time.</p>
+      <a href="mailto:hello@luxsomnia.com" class="btn btn-primary">hello@luxsomnia.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Luxsomnia — Precision machined gear. Ensenada, MX · San Diego, CA.</div>
+    <div>Handcrafted to order.</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
